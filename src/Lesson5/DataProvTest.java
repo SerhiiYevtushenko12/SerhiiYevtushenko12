@@ -32,7 +32,7 @@ public class DataProvTest {
         WebElement element = driver.findElement(By.xpath(".//*[@name='q']"));
         element.sendKeys("Selenium");
         element.submit();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         System.out.println("Page title is: " + driver.getTitle());
         Thread.sleep(5000);
 
