@@ -34,7 +34,7 @@ public class DataProvTest {
         element.submit();
         Thread.sleep(3000);
         System.out.println("Page title is: " + driver.getTitle());
-        Thread.sleep(3000);
+        Thread.sleep(5000);
 
     }
 
