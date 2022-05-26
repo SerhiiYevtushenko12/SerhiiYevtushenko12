@@ -2,21 +2,24 @@ package lesson4;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 
 public class Facebook {
+    private WebDriver driver;
+
     @BeforeTest
-    public static void main(String[] args) throws InterruptedException {
+    public void setUp() {
         System.setProperty("webdriver.gecko.driver", "/Users/serhii/IdeaProjects/untitled2/Sources/geckodriver");
-        WebDriver driver = new FirefoxDriver();
+        driver = new FirefoxDriver();
     }
+
     @Test
+    public void loginTest() throws InterruptedException {
         driver.get("https://facebook.com");
         driver.findElement(By.xpath(".//*[@rel=\"async\"]")).click();
         Thread.sleep(1_000);
@@ -38,6 +41,11 @@ public class Facebook {
         driver.findElement(By.xpath("//label[text()='Female']")).click();
 
         driver.findElement(By.xpath(".//*[@name=\"websubmit\"]\n")).click();
+    }
+
+    @AfterTest
+    public void tearDown() {
+        driver.quit();
     }
 }
 
