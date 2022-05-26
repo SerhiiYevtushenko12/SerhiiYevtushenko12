@@ -6,12 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 
 public class Facebook {
+    @BeforeTest
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.gecko.driver", "/Users/serhii/IdeaProjects/untitled2/Sources/geckodriver");
         WebDriver driver = new FirefoxDriver();
+    }
+    @Test
         driver.get("https://facebook.com");
         driver.findElement(By.xpath(".//*[@rel=\"async\"]")).click();
         Thread.sleep(1_000);
